@@ -1,9 +1,9 @@
-package linode
+package main
 
 import (
 	"fmt"
 
-	"github.com/btobolaski/linodego"
+	"github.com/taoh/linodego"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
 )

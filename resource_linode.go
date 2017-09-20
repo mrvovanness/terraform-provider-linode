@@ -1,4 +1,4 @@
-package linode
+package main
 
 import (
 	"encoding/base64"
@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/btobolaski/linodego"
+	"github.com/taoh/linodego"
 	"github.com/hashicorp/terraform/helper/schema"
 	"golang.org/x/crypto/sha3"
 	"log"

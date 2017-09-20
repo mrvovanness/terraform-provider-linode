@@ -1,4 +1,4 @@
-package linode
+package main
 
 import (
 	"os"
