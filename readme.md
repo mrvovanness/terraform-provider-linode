@@ -32,7 +32,7 @@ providers {
 
 If you didn't add terraform-provider-linode to your path, you'll need to put the full path to the location of the plugin.
 
-[3]:https://github.com/btobolaski/terraform-provider-linode/releases
+[3]:https://github.com/mrvovanness/terraform-provider-linode/releases
 
 ## Usage
 
@@ -92,10 +92,10 @@ value                             | Type     | Forces New | Value Type | Descrip
 ## Contributing
 
 1. Fork the repo
-2. Use [godep][3] to get the correct versions of the dependencies
+2. Use [govendor][3] to get the correct versions of the dependencies
 3. Make your changes
 4. Apply `go fmt` to all of the files
 5. Verify that the tests still pass
 6. Submit a pull request
 
-[3]:https://github.com/tools/godep
+[3]:https://github.com/kardianos/govendor
