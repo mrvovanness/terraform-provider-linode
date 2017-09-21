@@ -88,6 +88,29 @@ value                             | Type     | Forces New | Value Type | Descrip
 `manage_private_ip_automatically` | Optional | no         | bool       | Automatically creates network configuration files for your distro and places them into your filesystem. Will reboot your linode when enabled.
 
 [^1]: While these technically could be modified, it requires destroying the root volume and creating a new volume which is practically the same as creating a new instance.
+image list:
+
+```
+Arch 2017.07.01
+CentOS 7
+CoreOS Container Linux
+Debian 8
+Debian 9
+Fedora 26
+Gentoo 2017-07-12
+OpenSUSE Leap 42.3
+Slackware 14.2
+Ubuntu 16.04 LTS
+Ubuntu 17.04
+CentOS 6.8
+Debian 7
+Fedora 25
+openSUSE Leap 42.2
+Slackware 13.37
+Slackware 14.1
+Ubuntu 14.04 LTS
+```
+
 
 ## Contributing
 
