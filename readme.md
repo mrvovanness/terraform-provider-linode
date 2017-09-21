@@ -16,7 +16,7 @@ likely be tedious.
 
 ## Requirements
 
-* [`terraform`][2]
+* [`terraform`][2] v0.10
 
 ## Installation
 
@@ -77,7 +77,7 @@ value                             | Type     | Forces New | Value Type | Descrip
 `kernel`                          | Required | no         | string     | The kernel to start the linode with. If you can specify `"Latest 64-bit"` or `"Latest 32-bit"` for the most recent version of either that linode provices
 `name`                            | Optional | no         | string     | The name of the linode
 `group`                           | Optional | no         | string     | The group of the linode
-`region`                          | Required | yes        | string     | The region that the linode will be created in
+`region`                          | Required | yes        | string     | The region that the linode will be created in (available are `Dallas, TX, USA`, `Fremont, CA, USA`, `Atlanta, GA, USA`, `Newark, NJ, USA`, `London, England, UK`, `Tokyo, JP`, `Singapore, SG`, `Frankfurt, DE`, `Tokyo 2, JP`)
 `size`                            | Required | yes        | int        | The amount of ram in the linode plan. i.e. 1024, 2048 or 4096
 `ip_address`                      | Computed | n/a        | string     | The public ip address
 `private_networking`              | Optional | sort of    | bool       | Whether or not to enable private networking. It can be enabled on an existing linode but it can't be disabled.
@@ -92,10 +92,10 @@ value                             | Type     | Forces New | Value Type | Descrip
 ## Contributing
 
 1. Fork the repo
-2. Use [govendor][3] to get the correct versions of the dependencies
+2. Use [govendor][4] to get the correct versions of the dependencies
 3. Make your changes
 4. Apply `go fmt` to all of the files
 5. Verify that the tests still pass
 6. Submit a pull request
 
-[3]:https://github.com/kardianos/govendor
+[4]:https://github.com/kardianos/govendor
