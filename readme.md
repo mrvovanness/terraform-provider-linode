@@ -21,6 +21,7 @@ likely be tedious.
 ## Installation
 
 1. Download the plugin from the [releases tab][3]
+Both Linux and FreeBSD binaries are available.
 2. Put it somewhere were it can permanently live, it doesn't need to be in your path.
 3. Create or modify your `~/.terraformrc` file. You'll need at least this:
 
@@ -42,7 +43,7 @@ If you didn't add terraform-provider-linode to your path, you'll need to put the
 
 ```
 provider "linode" {
-  key = "$LINODE_API_KEY"
+key = "$LINODE_API_KEY"
 }
 ```
 
@@ -56,18 +57,18 @@ The provider options are:
 
 ```
 resource "linode_linode" "foobar" {
-	image = "Ubuntu 14.04 LTS"
-	kernel = "Latest 64 bit"
-	name = "foobaz"
-	group = "integration"
-	region = "Dallas, TX, USA"
-	size = 1024
-	status = "on"
-	ip_address = "8.8.8.8"
-	private_networking = true
-	private_ip_address = "192.168.10.50"
-	ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCxtdizvJzTT38y2oXuoLUXbLUf9V0Jy9KsM0bgIvjUCSEbuLWCXKnWqgBmkv7iTKGZg3fx6JA10hiufdGHD7at5YaRUitGP2mvC2I68AYNZmLCGXh0hYMrrUB01OEXHaYhpSmXIBc9zUdTreL5CvYe3PAYzuBA0/lGFTnNsHosSd+suA4xfJWMr/Fr4/uxrpcy8N8BE16pm4kci5tcMh6rGUGtDEj6aE9k8OI4SRmSZJsNElsu/Z/K4zqCpkW/U06vOnRrE98j3NE07nxVOTqdAMZqopFiMP0MXWvd6XyS2/uKU+COLLc0+hVsgj+dVMTWfy8wZ58OJDsIKk/cI/7yF+GZz89Js+qYx7u9mNhpEgD4UrcRHpitlRgVhA8p6R4oBqb0m/rpKBd2BAFdcty3GIP9CWsARtsCbN6YDLJ1JN3xI34jSGC1ROktVHg27bEEiT5A75w3WJl96BlSo5zJsIZDTWlaqnr26YxNHba4ILdVLKigQtQpf8WFsnB9YzmDdb9K3w9szf5lAkb/SFXw+e+yPS9habkpOncL0oCsgag5wUGCEmZ7wpiY8QgARhuwsQUkxv1aUi/Nn7b7sAkKSkxtBI3LBXZ+vcUxZTH0ut4pe9rbrEed3ktAOF5FafjA1VtarPqqZ+g46xVO9llgpXcl3rVglFtXzTcUy09hGw== btobolaski@Brendans-MacBook-Pro.local"
-	root_password = "terraform-test"
+image = "Ubuntu 14.04 LTS"
+kernel = "Latest 64 bit"
+name = "foobaz"
+group = "integration"
+region = "Dallas, TX, USA"
+size = 1024
+status = "on"
+ip_address = "8.8.8.8"
+private_networking = true
+private_ip_address = "192.168.10.50"
+ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCxtdizvJzTT38y2oXuoLUXbLUf9V0Jy9KsM0bgIvjUCSEbuLWCXKnWqgBmkv7iTKGZg3fx6JA10hiufdGHD7at5YaRUitGP2mvC2I68AYNZmLCGXh0hYMrrUB01OEXHaYhpSmXIBc9zUdTreL5CvYe3PAYzuBA0/lGFTnNsHosSd+suA4xfJWMr/Fr4/uxrpcy8N8BE16pm4kci5tcMh6rGUGtDEj6aE9k8OI4SRmSZJsNElsu/Z/K4zqCpkW/U06vOnRrE98j3NE07nxVOTqdAMZqopFiMP0MXWvd6XyS2/uKU+COLLc0+hVsgj+dVMTWfy8wZ58OJDsIKk/cI/7yF+GZz89Js+qYx7u9mNhpEgD4UrcRHpitlRgVhA8p6R4oBqb0m/rpKBd2BAFdcty3GIP9CWsARtsCbN6YDLJ1JN3xI34jSGC1ROktVHg27bEEiT5A75w3WJl96BlSo5zJsIZDTWlaqnr26YxNHba4ILdVLKigQtQpf8WFsnB9YzmDdb9K3w9szf5lAkb/SFXw+e+yPS9habkpOncL0oCsgag5wUGCEmZ7wpiY8QgARhuwsQUkxv1aUi/Nn7b7sAkKSkxtBI3LBXZ+vcUxZTH0ut4pe9rbrEed3ktAOF5FafjA1VtarPqqZ+g46xVO9llgpXcl3rVglFtXzTcUy09hGw== btobolaski@Brendans-MacBook-Pro.local"
+root_password = "terraform-test"
 }
 ```
 
@@ -122,3 +123,17 @@ Ubuntu 14.04 LTS
 6. Submit a pull request
 
 [4]:https://github.com/kardianos/govendor
+
+## Building
+If you're unfamiliar with building go or terraform plugins, please visit the following links first:
+https://golang.org/pkg/go/build/
+https://golang.org/doc/install
+https://www.terraform.io/guides/writing-custom-terraform-providers.html
+
+1. Set up your GOPATH. A good default is $HOME/go. You can quickly set it by running `export GOPATH=$HOME/go`
+2. cd to your new GOPATH.
+3. Run `go get github.com/mrvovanness/terraform-provider-linode`
+4. `cd $GOPATH/src/github.com/RainbowHackerHorse/terraform-provider-linode/bin/terraform-provider-linode`
+5. `go build -o terraform-provider-linode` (To cross-compile for freebsd, run `GOOS=freebsd GOARCH=amd64 build -o terraform-provider-linode`)
+6. Copy the resulting package to wherever you want on your filesystem.
+7. Follow the above instructions for using it.

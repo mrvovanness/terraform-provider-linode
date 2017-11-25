@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/taoh/linodego"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
+	"github.com/taoh/linodego"
 )
 
 func Provider() terraform.ResourceProvider {
